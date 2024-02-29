@@ -39,6 +39,16 @@ const app = createApp({
           this.todoList = res.data;
         });
     },
+
+    statusTask(index) {
+      const dataToDelete = { index: index };
+      const params = { headers: { "Content-Type": "multipart/form-data" } };
+      axios
+        .post("../back-end/status-task.php", dataToDelete, params)
+        .then((res) => {
+          this.todoList = res.data;
+        });
+    },
   },
 });
 app.mount("#app");

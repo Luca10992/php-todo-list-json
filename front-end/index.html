@@ -71,7 +71,12 @@
                 v-for="(task, index) in todoList"
                 class="task d-flex justify-content-between"
               >
-                <div>{{ task.name }}</div>
+                <div
+                  @click="statusTask(index)"
+                  :class="task.done ? 'done' : ''"
+                >
+                  {{ task.name }}
+                </div>
                 <div>
                   <i
                     @click="deleteTask(index)"

@@ -46,6 +46,11 @@ main {
   opacity: 0.7;
 }
 
+.done {
+  text-decoration: line-through;
+  color: rgba(0, 0, 0, 0.4);
+}
+
 .fa-trash-can:hover {
   opacity: 0.7;
 }
