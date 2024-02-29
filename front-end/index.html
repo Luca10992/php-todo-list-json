@@ -48,7 +48,7 @@
       <!-- Fine Header -->
       <!-- Inizio Main -->
       <main>
-        <div class="container mx-5 my-2">
+        <div class="container my-2">
           <div class="d-flex gap-2 align-items-center">
             <input
               type="text"
@@ -66,17 +66,20 @@
           </div>
           <h2 class="my-4 fw-bold">My Tasks</h2>
           <div class="tasks">
-            <ul class="p-0">
-              <li
-                v-for="task in todoList"
-                class="task w-25 d-flex justify-content-between"
+            <div class="p-0 row">
+              <div
+                v-for="(task, index) in todoList"
+                class="task d-flex justify-content-between"
               >
                 <div>{{ task.name }}</div>
                 <div>
-                  <i class="fa-regular fa-trash-can text-danger fs-3"></i>
+                  <i
+                    @click="deleteTask(index)"
+                    class="fa-regular fa-trash-can text-danger fs-3"
+                  ></i>
                 </div>
-              </li>
-            </ul>
+              </div>
+            </div>
           </div>
         </div>
       </main>
