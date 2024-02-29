@@ -26,6 +26,9 @@
     <!-- Vue CDN -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
+    <!-- Axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
     <!-- Style CSS -->
     <link rel="stylesheet" href="./style.css" />
 
@@ -46,23 +49,31 @@
       <!-- Inizio Main -->
       <main>
         <div class="container mx-5 my-2">
-          <div class="d-flex gap-2">
+          <div class="d-flex gap-2 align-items-center">
             <input
               type="text"
               class="form-control w-50"
               placeholder="Add Task"
+              v-model="addTask"
+              @keyUp.enter="saveTask()"
             />
             <div>
-              <i class="fa-solid fa-circle-plus text-primary fs-2"></i>
+              <i
+                @click="saveTask()"
+                class="fa-solid fa-circle-plus text-primary fs-2"
+              ></i>
             </div>
           </div>
           <h2 class="my-4 fw-bold">My Tasks</h2>
           <div class="tasks">
             <ul class="p-0">
-              <li class="task w-25 d-flex justify-content-between">
-                <div></div>
+              <li
+                v-for="task in todoList"
+                class="task w-25 d-flex justify-content-between"
+              >
+                <div>{{ task.name }}</div>
                 <div>
-                  <i class="bi bi-trash2 text-danger fs-3"></i>
+                  <i class="fa-regular fa-trash-can text-danger fs-3"></i>
                 </div>
               </li>
             </ul>
